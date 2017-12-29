@@ -20,5 +20,7 @@ int main() {
 
 	H.change_capacity(2);
 
+	H.~hashtable();
+
 	return 0;
 }

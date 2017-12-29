@@ -6,6 +6,10 @@ hashtable::hashtable() {
 	arr_ptr = arr;
 }
 
+hashtable::~hashtable() {
+	delete arr_ptr;
+}
+
 void hashtable::set(pair<const char*, const char*> input) {
 	int intenger = go_hash(input.first) % bucket_size;
 	arr_ptr[intenger] = input;
@@ -22,6 +26,8 @@ void hashtable::change_capacity(int new_bucket_size) {
 		int intenger = go_hash(arr_ptr[i].first) % new_bucket_size;
 		new_arr[intenger] = arr_ptr[i];
 	}
+	delete arr_ptr;
 	arr_ptr = new_arr;
 	bucket_size = new_bucket_size;
+
 }
